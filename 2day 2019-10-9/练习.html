@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+    <script>
+        // var obj = {
+        //     val: 2,
+        //     dbl: function () {
+        //         console.log(this);  //obj
+        //         this.val *= 2;
+        //         console.log(this.val); //4
+        //         console.log(val); // 找不到 报错
+        //     }
+        // }
+        // var ff = obj.dbl();
+        // var fn = obj.dbl;
+        // fn();
+
+
+        // +function () {
+        //     console.log(a) // a() { }
+        //     var a = 5;
+        //     function a() { }
+        //     console.log(a) //5
+        //     function b() { }
+        //     b = 6;
+        //     console.log(b) //6
+        //     var c = d = b; //d 由于没有加逗号 或var所以 d 作用在window
+        // }()
+        // console.log(d) //6
+        // console.log(c)  //无法获取到函数中的内容所以报错
+
+
+
+        // var a = 123;
+        // function fun(a) {
+        //     console.log(a); //undefined  函数没有传实参
+        //     a = 456;
+        // }
+        // fun();
+        // console.log(a); //123
+
+
+        // var a = 123;
+        // function fun(a) {
+        //     console.log(a); //123
+        //     a = 456;
+        // }
+        // fun(123);
+        // console.log(a); //123
+
+        // function test(a, b) {
+        //     console.log(a); //a() { }
+        //     console.log(b); // undefined
+        //     var b = 234; 
+        //     console.log(b); //234
+        //     a = 123;
+        //     console.log(a); //123
+        //     function a() { }
+        //     var a;
+        //     b = 234;
+        //     var b = function () { }
+        //     console.log(a);//123
+        //     console.log(b);//() { }
+        // }
+        // test(1);
+
+
+        // function fn(a) {
+        //     console.log(a);  //a() { }
+        //     var a = 123;
+        //     console.log(a); //123
+        //     function a() { }
+        //     console.log(a); //123
+        //     var b = function () { }
+        //     console.log(b); //function () { }
+
+        //     function d() { }
+        // }
+        // fn(1);
+
+
+        // function fn() {
+        //     console.log(12) //12
+        // }
+        // var as = fn()
+
+        // console.log(as)   //undefined 函数没有返回值
+
+
+        // function fn() {
+        //     console.log(12) //12
+        //     return 45;
+        //     console.log(456)
+        // }
+        // fn()
+
+
+        // var a = 12;
+        // function fn() {
+        //     console.log(a)　　//undefined
+
+        //     return 4;
+        //     var a = 45;
+        // }
+        // fn();
+
+
+        var a = 100;
+        function testResult() {
+            var b = 2 * a 
+            var a = 200
+            var c = a / 2
+            console.log(b)//NaN
+            console.log(c) //100
+        }
+        testResult()
+
+
+
+
+    </script>
+</body>
+
+</html>

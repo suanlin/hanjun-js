@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+        作用域
+            指的是js运行的范围
+
+            作用域分两种,一种叫全局作用域,一种叫部分作用域
+
+        全局作用域
+            当打开浏览器解读到script标签的时候,会把js运行在一个window的全局作用域下,全局会生成一个全局的活动变量对象,会把所有的变量或函数设置为这个对象下属性,整个window下的环境都叫全局作用域;所以一个变量或者一个函数,默认属于window
+
+        局部作用域
+            在运行函数的时候,函数内部会开辟一个执行栈,在执行栈中会创建一个活动变量的对象,会把函数中所有变量 函数储存到这个活动变量下,执行栈去执行这个活动变量,这些活动变量下的变量 函数只会作用在函数内     这种现象就叫局部作用域        
+    
+    
+    
+    
+    */
+    // console.log(window.a)   //如果没有使用var声明变量,那么在赋值前a是找不到的(类似于let的死区)
+    // a =1
+    // console.log(window)  //赋值之后a就会存在
+
+    // console.log(a)  //undefined
+    // var a = 10
+    // console.log(a)  //10
+
+    
+    
+    
+    // function fn(){
+    //     var a = 20
+    //     return a
+    // }
+    // console.log(fn()) //20
+
+
+    function f(){
+        console.log(this) //window
+    }
+    f()
+    console.log(window.f) //函数
+
+
+    </script>
+</body>
+</html>

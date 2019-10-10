@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>变量提升</title>
+</head>
+
+<body>
+    <script>
+        /*
+            变量提升:
+                当浏览器去解析js的时候,会提前解析全局的变量或函数的过程
+            第一步
+                上来就找var和function
+            第二步
+                逐行解读代码,此时var和function就不用再去读了
+                一般读的是赋值,计算,比较,输出
+    
+            规则:变量没有函数大,后面的函数声明比前面的函数声明大(后面的会覆盖前面的)
+    
+            一个匿名函数自执行函数,如果带有名字,在函数体内不管如何赋值同名的变量,结果都等于这个有名的函数
+        */
+
+        // var a = 10;
+        // (function a() {
+        //     a = {}
+        //     console.log(a) //a函数,包括注释
+        // })()
+
+        // console.log(a) // a(){console.log(3)}
+        // a() //3
+        // function a(){console.log(1)}
+        // a() //3
+        // function a(){console.log(2)}
+        // var a = 10
+        // function a(){console.log(3)}
+        // console.log(a) //10
+        // a() //报错
+        // console.log(a) //不执行
+
+
+
+        // console.log(a)  // a(){ console.log(2)}
+        // a() //2
+        // function a(){
+        //     console.log(1)
+        // }
+        // var a = 10
+        // console.log(a) //10
+        // function a(){
+        //     console.log(2)
+        // }
+        // a()  //报错
+
+        
+        // console.log(a) //a(){}
+        // function a(){}
+        // console.log(a) //a(){}
+        // var a = 10
+        // console.log(a) //10
+
+
+
+
+
+        // function a(){}
+        // console.log(a) //a(){}
+        // var a =10
+        // console.log(a) //10
+        // var a = 20
+        // console.log(a) //20
+
+    </script>
+
+</body>
+
+</html>
