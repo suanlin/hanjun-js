@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+    面向对象(Object Oriented,,OO)
+        是一种对现实世界理解和抽象的方法,是计算机编程技术发展到一定阶段的产物
+        现象理解(东西是一样的,但是角度不同,所以描述的过程不同(就是属性名相同但属性值不同))
+        抽象:抽出像的部分(就是将属性名抽出来统一调配)
+    面向对象是一种编程思想,就是把相同部分的代码抽离出来归为一类,把描述这个类的共有特征(方法或属性)挂在类的原型下的一种编程思想(方法,模式)
+
+    类的首字母大写
+*/
+
+    function Abc(name,age,sex,job){ 
+        this.name =name
+        this.age=age
+        this.sex=sex
+        this,job=job
+        this.say=function(){
+            console.log('我的名字叫'+this.name)
+        }
+    }
+    let obj = new Abc('qq',11,'nan','zishen') //当调用时在函数前添加new那么它的默认返回值为对象,当返回值为简单类型是返回值还是对象,当返回值为一个引用类型时那么返回值为那个引用类型;它的this也为那个实例化对象;所以利用mew的特性在那个实例化对象中添加属性;
+    let obj2 = new Abc('aa',22,'uu','ddf')
+    console.log(obj)
+    console.log(obj2)
+    obj.say()
+    obj2.say()
+
+
+
+
+
+
+</script>    
+</body>
+</html>

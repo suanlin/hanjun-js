@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        this:
+            1.在事件函数中,谁触发的事件,this就是谁
+            2.函数直接调用,默认this为window
+            3.方法(函数前面有主的都叫方法),this就是.前面的主(箭头函数例外)
+            4.箭头函数,她得this为函数定义时的上下文作用域
+            例:
+                1.document.onclick = function(){
+                    console.log(this) //document
+                }
+                2.function fn(){
+                    console.log(this)  //window
+                }
+                fn()
+                3.let obj = {
+                    fn:function(){
+                        console.log(this)  //obj
+                    }
+                }
+                obj.fn()
+                4.document.onclick = function(){
+                    let fn = () =>{
+                        console.log(this)  //document
+                    }
+                    fn()
+                }
+        */
+
+        // document.onclick = function(){
+        //     console.log(this)  //document
+        // }
+
+
+        // document.onclick = fn
+        // function fn(){
+        //     console.log(this) //当有fn()使函数会被直接调用,所以直接会输出window,当点击事件触发使会输出document
+        // }
+        // fn()
+
+        // document.onclick = fn()
+        // function fn(){
+        //     console.log(this)  //函数会被直接调用,点击事件不会被触发
+        // }
+        //     console.log(document.onclick) //事件没有赋值所以为null
+
+
+        // document.onssss = fn()
+        // function fn(){
+        //     console.log(this) //函数直接调用
+        // }
+        // console.log(document.onssss) //window中不存在这个事件所以找不到就为undefined
+
+        // document.onclick  = function(){
+        //     console.log(this)
+        // }
+        // document.onclick = (function (){
+        //     console.log(this)  // 函数直接调用所以this为window
+        // })()
+
+        // ; let ary = {
+        //     f:() =>{
+        //         console.log(this) //箭头函数它的this为上一层的作用域
+        //     }
+        // }
+        // ary.f()
+
+
+
+        // document.onclick = function (){
+        //     return fn()
+        // }
+        // function fn(){
+        //     console.log(this) //window 函数直接应用this就为window
+        // }
+
+
+
+
+        // function fn(){
+        //     console.log(this) //普通函数前面有.那么它的this就为点前面的主
+        // }
+        // let obj = {
+        //     fn:fn,
+        //     qq:{
+        //         f:{
+        //             n : 0,
+        //             fn : fn,
+        //             f:()=>{
+        //                 console.log(this) //箭头函数的this会找它上一层的作用域,没有局部作用域就为全局作用域window
+        //             }
+        //         }
+        //     }
+        // }
+        // obj.qq.f.f()
+        // obj.qq.f.fn()
+
+
+
+        // document.onclick = function (){
+        //     let fn = ()=>{
+        //         console.log(this) //箭头函数的this为上一层的作用域所以为document
+        //     }
+        //     fn()
+        // }
+
+        // document.onclick = () =>{
+        //     console.log(this) //原理同上所以为window
+        // }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

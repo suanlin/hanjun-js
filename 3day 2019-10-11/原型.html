@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            当一个函数创建出来的时候,自身会再有一些属性和方法其中一个属性叫prototype,值为对象,它就是原型
+            
+            作用:
+                构造函数的原型下的属性或方法,只能给构造函数的实例化对象项使用
+        
+            原型链
+                _proto_只要是实例都有_proto_,而这个原型链是全等于构造函数的原型
+                obj._proto_ === Fn.prototype
+        */
+        // function Fn() {
+
+        // }
+        // Object.prototype.say = 20
+        // Fn.prototype.say = function () { //在函数的原型的原型上添加一个函数
+        //     console.log(1)
+        // }
+        // let obj = new Fn //将返回值变为对象
+        // let obj2 = new Fn
+        // console.log(obj) //打印输出返回值
+        // console.dir(Fn) //打印原函数
+
+        // obj.say = 10
+
+        // console.log(obj.__proto__ === Fn.prototype) //实例对象的原型链等于构造函数的原型链
+        // console.log(obj.__proto__.say === Fn.prototype.say);//它们下新加的属性写相等
+        // console.log(Fn.prototype.__proto__ === Object.prototype)
+        // console.log(Object.prototype.__proto__) //最后会为空
+
+
+
+
+
+
+
+        function Fn() {
+            this.a = 10;
+        }
+        Fn.prototype.a = 20;
+        Fn.a = 30;
+        Function.prototype.a = 50;
+        let f = new Fn();
+        f.a = 40;
+
+        //获得10
+            //去掉f.a = 40  打印输出 console.log(f.a);
+        //获得20
+            //去掉f.a = 40 去掉this.a = 10; 打印输出 console.log(f.a);
+        //获得30
+            //直接打印输出console.log(Fn.a);
+        //获得40
+            //直接打印输出console.log(f.a);
+        //获得50
+            //直接打印输出console.dir(Fn.__proto__.a);
+            console.dir(Fn.__proto__.a);
+        
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

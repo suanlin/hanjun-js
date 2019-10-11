@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            new
+                一元运算符,专门运算函数的,能让函数不加括号的情况下执行
+                    加括号是为了传实参
+                1.构造函数中的this就是这个构造函数的实例对象,默认的this也是实例对象
+                2.return返回值如果为简单类型,那么返回值的结果为实例化对象,返回值如果为引用类型,那么返回值就是这个引用类型
+        
+    
+        
+        */
+
+        function Fn(t) { 
+            this.a = 1  //当函数调用前有new是this为实例化对象所以在这个可以在这个对象中添加属性
+        }
+        let f = new Fn
+        console.log(f) //返回值为实例化对象
+        console.log(Fn)
+
+
+
+
+    </script>
+
+</body>
+
+</html>

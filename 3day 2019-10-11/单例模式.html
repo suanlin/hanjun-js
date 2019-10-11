@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+    单独是实例(实例,具体的事务)
+        由多个简单类型或引用类型组合在一起的事务
+        let obj = {
+            name:'ss',
+            age:11,
+            sex:'nan'
+            shu:'shu'
+        }
+    高级单例模式(让单例模式功能更强大,可以隐藏内部代码,形成模块化编程)
+        let num = 10
+        let obj = (function(){
+            let age = 15
+            function fn(a,b){
+                return (a+b)
+            }
+            return {
+                name : 'qq',        //name : 'qq' 直接赋值为字符串
+                num2 : fn(age,num), //num2: 25  函数调用并传入实参,执行fn函数结果为返回值
+                fn:fn               // 函数fn(a,b) 直接为函数
+            }
+        })()
+
+        console.log(obj)
+        let obj2 = (function(){
+            let nn = 10
+            function fn(a,b){
+                return (a*b)
+            }
+            return {
+                nn:nn, // nn:10
+                nn2:obj.fn(num,nn) //nn2:20  调用obj中的fn函数输出返回值运算后的结果
+            }
+        })()
+
+        console.log(obj2)
+
+
+*/
+    // let num = 10
+    // let obj = (function(){
+    //     let age = 15
+    //     function fn(a,b){
+    //         return (a+b)
+    //     }
+    //     return {
+    //         name : 'qq',        //name : 'qq' 直接赋值为字符串
+    //         num2 : fn(age,num), //num2: 25  函数调用并传入实参,执行fn函数结果为返回值
+    //         fn:fn               // 函数fn(a,b) 直接为函数
+    //     }
+    // })()
+
+    // console.log(obj)
+
+    // let obj2 = (function(){
+    //     let nn = 10
+    //     function fn(a,b){
+    //         return (a*b)
+    //     }
+    //     return {
+    //         nn:nn, // nn:10
+    //         nn2:obj.fn(num,nn) //nn2:20  调用obj中的fn函数输出返回值运算后的结果
+    //     }
+    // })()
+
+    // console.log(obj2)
+
+    //柯里化函数
+    // function fn1(x){
+    //     return function(y){
+    //         return (x+y)
+    //     }
+    // }
+    // let a = fn1(1) //调用函数fn1并输入实参
+    // let b = a(2)  //调用fn1返回值中的函数并传入实参
+    // console.log(b) //3
+    // console.dir(fn1)
+
+
+
+
+</script>
+</body>
+</html>
