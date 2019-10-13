@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .active {
+            background: yellow;
+        }
+
+        #box div,
+        #box2 div,
+        #box3 div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+            display: none;
+        }
+
+        #box div.show,
+        #box2 div.show,
+        #box3 div.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <button class="active">按钮一</button>
+        <button>按钮二</button>
+        <button>按钮三</button>
+        <div class="show">11111</div>
+        <div>22222</div>
+        <div>33333</div>
+    </div>
+    <div id="box2">
+        <button class="active">按钮一</button>
+        <button>按钮二</button>
+        <button>按钮三</button>
+        <div class="show">11111</div>
+        <div>22222</div>
+        <div>33333</div>
+    </div>
+    <div id="box3">
+        <button class="active">按钮一</button>
+        <button>按钮二</button>
+        <button>按钮三</button>
+        <div class="show">11111</div>
+        <div>22222</div>
+        <div>33333</div>
+    </div>
+<script>
+    //获取标签并以一个对象的形式返回
+    function Tab(id){           //将大标签传入然后获取大标签下的按钮标签和div,并以实例化对象的形式输出
+        this.box = document.getElementById(id)
+        this.btns = this.box.querySelectorAll('button')
+        this.divs = this.box.querySelectorAll('div')
+        this.num = 0;
+        console.log(this)
+    }
+   
+    
+    
+
+    //循环按钮,触发事件
+    Tab.prototype.events = function(evName){  //在函数的原型下写入点击事件的函数,方便实例化对象的查找
+        let that = this //存值 箭头函数的this会发生变化所以在进入箭头函数之前将值存起来,方便使用
+        this.btns.forEach((ele,i)=>{  //使用forEach循环实例化对象中的点击按钮
+            ele[evName] = function(){  //调用事件达到效果
+                that.change(i) //调用函数达到切换的效果
+            }
+        })
+        console.log(this)
+    }
+    console.dir(Tab)
+    //切换
+    Tab.prototype.change = function(i){ //在函数原型下写入切换的函数
+        //清空标签
+        this.btns.forEach((ele,i)=>{  //使用循环使所有的class名都为空,达到大清洗的效果
+            ele.className = ''
+            this.divs[i].className = ''
+        })
+        //切换
+        this.btns[i].className = 'active'
+        this.divs[i].className = 'show'
+        console.log(this)
+    }
+
+    //定时器
+    Tab.prototype.autoPlay = function(){ //在函数原型上添加一个函数方便调用
+        setInterval(()=>{                //添加定时器
+            this.num ++;                //每触发一次定时器就让变量加一
+            this.num %= 3;              //当等于三时直接归零重新开始
+            this.change(this.num);      //调用切换时使用的函数使内容随定时器的变化进行变化
+        },1000)
+    }
+
+
+
+
+    let t = new Tab('box')
+    t.events('onclick')
+
+    let t2 = new Tab('box2')
+    t2.events('onmouseover')
+   
+    let t3 = new Tab('box3')
+    t3.autoPlay()
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

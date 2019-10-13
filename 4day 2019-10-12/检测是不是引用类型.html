@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = []
+        //第一种
+        // if (a !== undefined && a !== null && a !== Symbol) {
+        //     a.bb = 2
+        //     if (a.bb === undefined) {
+        //         console.log('a是一个简单类型')
+        //     } else {
+        //         console.log('a是一个引用类型')
+        //     }
+        // } else {
+        //     console.log('a是一个简单类型')
+        // }
+
+        //第二种
+        if (typeof a === 'symbol') {
+            console.log('a是一个简单类型')
+        } else {
+            let b = ['Undefined', 'Number', 'Null', 'String', 'Boolean']
+            let c = Object.prototype.toString
+            let d = b.some(item => c.call(a) === '[object ' + item + ']')
+            if (d) {
+                console.log('a是一个简单类型')
+            } else {
+                console.log('a是一个引用类型')
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

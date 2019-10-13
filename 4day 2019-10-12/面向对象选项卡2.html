@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .active {
+            background: yellow;
+        }
+
+        #box div,
+        #box2 div,
+        #box3 div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+            display: none;
+        }
+
+        #box div.show,
+        #box2 div.show,
+        #box3 div.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <button class="active">按钮一</button>
+        <button>按钮二</button>
+        <button>按钮三</button>
+        <div class="show">11111</div>
+        <div>22222</div>
+        <div>33333</div>
+    </div>
+    <div id="box2">
+        <button class="active">按钮一</button>
+        <button>按钮二</button>
+        <button>按钮三</button>
+        <div class="show">11111</div>
+        <div>22222</div>
+        <div>33333</div>
+    </div>
+    <div id="box3">
+        <button class="active">按钮一</button>
+        <button>按钮二</button>
+        <button>按钮三</button>
+        <div class="show">11111</div>
+        <div>22222</div>
+        <div>33333</div>
+    </div>
+    <script>
+        //获取标签
+        function Tab(id) {
+            this.box = document.getElementById(id)
+            this.btns = this.box.querySelectorAll('button')
+            this.divs = this.box.querySelectorAll('div')
+            this.qc = 0
+        }
+
+        //循环按钮触发事并达到修改的作用
+        Tab.prototype.eve = function (shijian) {
+            let that = this
+            this.btns.forEach((ele, i) => {
+                ele[shijian] = function () {
+                    that.btns.forEach((ele, i) => {
+                        ele.className = ''
+                        that.divs[i].className = ''
+                    })
+                    that.btns[i].className = 'active'
+                    that.divs[i].className = 'show'
+                }
+            });
+        }
+
+        //定时器
+        Tab.prototype.ds = function () {
+            setInterval(() => {
+                console.log(this)
+                let bb =    this.qc
+                this.qc++
+                this.qc %= 3 
+                this.btns.forEach((ele, bb) => {
+                    console.log(this)
+                    ele.className = ''
+                    this.divs[bb].className = ''
+                })
+                this.btns[bb].className = 'active'
+                this.divs[bb].className = 'show'
+            },1000)
+        }
+
+        let t = new Tab('box')
+        t.eve('onclick')
+        console.dir(t)
+        let t2 = new Tab('box2')
+        t2.eve('onmouseover')
+
+        let t3 = new Tab('box3')
+        t3.ds()
+    </script>
+</body>
+
+</html>

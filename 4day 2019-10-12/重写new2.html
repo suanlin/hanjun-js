@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //主要设置
+        function New(fn, ...arg) {
+            let obj = {}
+            obj.__proto__ = fn.prototype
+            let rn = fn.call(obj, ...arg)
+            if (!isJD(rn)) {
+                console.log(2)
+                return rn
+            }
+            console.log(1)
+            return obj
+        }
+        //向对象中添加需要的内容
+        function fn(name, aaa, bbb, ccc) {
+            this.name = name
+            this.aaa = aaa
+            this.bbb = bbb
+            this.ccc = ccc
+        }
+        //判断fn的返回值
+        function isJD(rn) {
+            if (typeof rn === 'symbol') return obj
+            let aa = ['Undefined', 'String', 'Number', 'Null', 'Boolean']
+            let bb = Object.prototype.toString
+            let cc = aa.some(item => bb.call(rn) === '[object ' + item + ']')
+            console.log(cc)
+            return cc
+        }
+        //调用函数
+        let f = New(fn, 111, 222, 333, 444)
+        console.log(f)
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

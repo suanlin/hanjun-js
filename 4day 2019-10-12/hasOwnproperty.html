@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+    for in 会枚举原型链,也就是除了对象自身的属性以外,还会查找原型链上的自定义属性
+
+    可以通过obj.hasOwnProperty('属性名')去检测摸个属性是不是对象自身的
+    如果是自身的就返回true,否则false
+
+
+*/
+
+Object.prototype.qq = '222'
+let obj = {
+    name:'sss',
+    age : 122
+}
+for(let atter in obj){
+    if(obj.hasOwnProperty(atter)){
+        console.log(obj[atter])
+    }
+}
+
+
+
+
+
+</script>
+</body>
+</html>
