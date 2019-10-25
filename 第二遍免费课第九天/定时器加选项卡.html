@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #div1 {
+            margin: 0 auto;
+            width: 310px;
+        }
+
+        button {
+            height: 25px;
+            width: 100px;
+        }
+
+        #div1 div {
+            height: 308px;
+            width: 308px;
+            display: none;
+            border: orange 1px solid;
+        }
+
+        #btn {
+            background: orangered;
+        }
+
+        #div1 #div2 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <button id="btn">第一个</button>
+        <button>第二个</button>
+        <button>第三个</button>
+        <div id="div2">来爆闪</div>
+        <div>闪起来</div>
+        <div>闪闪闪</div>
+    </div>
+    <script>
+        let div3 = document.querySelectorAll('#div1 div')
+        let btn1 = document.querySelectorAll('#div1 button')
+        let a = 0
+        let b = true
+        for (let i = 0; i < btn1.length; i++) {
+            btn1[i].onclick = function () {
+                let that = this
+                btn1[a].id = ''
+                div3[a].id = ''
+                btn1[a].style.background = ''
+                this.id = 'btn'
+                div3[i].id = 'div2'
+                if (b) {
+                    div3[i].style.background = 'yellow'
+                    this.style.background = 'yellow'
+                } else {
+                    div3[i].style.background = 'orange'
+                    this.style.background = 'orange'
+                }
+                function aa() {
+                    setTimeout(() => {
+                        div3[i].style.background = 'yellow'
+                        that.style.background = 'yellow'
+                        setTimeout(() => {
+                            div3[i].style.background = 'orange'
+                            that.style.background = 'orange'
+                            setTimeout(() => {
+                                div3[i].style.background = 'skyblue'
+                                that.style.background = 'skyblue'
+                                setTimeout(() => {
+                                    div3[i].style.background = 'red'
+                                    that.style.background = 'red'
+                                    setTimeout(() => {
+                                        div3[i].style.background = 'green'
+                                        that.style.background = 'green'
+                                        setTimeout(() => {
+                                            div3[i].style.background = 'plum'
+                                            that.style.background = 'plum'
+                                            setTimeout(() => {
+                                                div3[i].style.background = 'orangered'
+                                                that.style.background = 'orangered'
+                                                setTimeout(() => {
+                                                    div3[i].style.background = 'chartreuse'
+                                                    that.style.background = 'chartreuse'
+                                                    setTimeout(() => {
+                                                        div3[i].style.background = 'cornsilk'
+                                                        that.style.background = 'cornsilk'
+                                                        setTimeout(() => {
+                                                            div3[i].style.background = 'pink'
+                                                            that.style.background = 'pink'
+                                                            setTimeout(() => {
+                                                                div3[i].style.background = 'rgb(189, 231, 74)'
+                                                                that.style.background = 'rgb(189, 231, 74)'
+                                                                aa()
+                                                            }, 200)
+                                                        }, 190)
+                                                    }, 180)
+                                                }, 170)
+                                            }, 160)
+                                        }, 150)
+                                    }, 150)
+                                }, 140)
+                            }, 130)
+                        }, 120)
+                    }, 110)
+                } aa()
+                b = !b
+                a = i
+            }
+        }
+
+    </script>
+</body>
+
+</html>

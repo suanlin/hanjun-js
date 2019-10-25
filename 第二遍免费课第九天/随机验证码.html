@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+
+        let str = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
+        function a(x, y) {
+            return Math.round(Math.random() * (y - x) + x)
+        }
+        let b = ''
+        for (let i = 0; i < 4; i++) {
+            b += str[a(0, str.length - 1)]
+
+        }
+        console.log(b)
+        box.innerText = b
+
+
+    </script>
+</body>
+
+</html>

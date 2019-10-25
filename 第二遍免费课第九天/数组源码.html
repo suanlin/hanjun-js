@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //map的应用
+        // let ary = ['哈哈哈',666,'呵呵呵','嘻嘻嘻']
+        // ul.innerHTML = ary.map(item=>`<li>${item}</li>`).join('') //给每一项添加一个标签li并将输出的新数组返回给ul的内容
+
+        // ul.innerHTML = ary.map(item=> '<li>'+item+'</li>').join('') //用法与上面相同,不过用的是字符串拼接的方式
+
+        //源码
+        // let ary = ['哈哈哈', 666, '呵呵呵', '嘻嘻嘻']
+        // function map2(ary, fn) {
+        //     let a = []
+        //     for (let i = 0; i < ary.length; i++) {
+        //         a.push(fn(ary[i], i, ary))
+        //     }
+        //     return a
+        // }
+        // ul.innerHTML = map2(ary, item => `<li>${item}</li>`).join('')
+
+
+        //手写的方法
+        // let ary = ['哈哈哈', 666, '呵呵呵', '嘻嘻嘻']
+        // for (let i = 0; i < ary.length; i++) {
+        //     ary[i] = '<li>' + ary[i] + '</li>'
+        // }
+        // ul.innerHTML = ary.join('')
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        //forEach 用法循环数组的每一项
+
+        //源码
+        // let ary = [1, 2, 3, 4, 5, 6]
+        // function forEach2(ary, fn) {
+        //     for (let i = 0; i < ary.length; i++) {
+        //         fn(ary[i], i, ary)
+        //     }
+        // }
+
+        // forEach2(ary, (item, i, all) => { console.log(item, i, all) })
+
+
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //filter 过滤将数组中符合的项以新数组的方式返回
+
+
+        //源码
+        // let ary = [1, 2, 3, 4, 5, 6]
+        // function filter2(ary, fn) {
+        //     let b = []
+        //     for (let i = 0; i < ary.length; i++) {
+        //         if(fn(ary[i], i, ary)){
+        //             b.push(ary[i])
+        //         }
+        //     }
+        //     return b
+        // }
+        // let a = filter2(ary, (item) =>item > 3 )
+        // console.log(a)
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //some 当有一个值符合条件时就会返回true,否则就为false
+
+
+
+        //源码
+        // let ary = [1, 2, 3, 4, 5, 6, 7]
+        // function some2(ary, fn) {
+        //     for (let i = 0; i < ary.length; i++) {
+        //         if (fn(ary[i], i, ary)) {
+        //             return true
+        //         }
+        //     }
+        //     return false
+        // }
+        // let a = some2(ary, item => item =8)
+        // console.log(a)
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //every 当所有的值都符合条件时才为true,否则为false
+        // let ary = [1, 2, 3, 4, 5, 6, 7]
+        // function every2(ary, fn) {
+        //     for (let i = 0; i < ary.length; i++) {
+        //         if (!fn(ary[i], i, ary)) {
+        //             return false
+        //         }
+        //     }
+        //     return true
+        // }
+        // let a = every2(ary, item => item > 1)
+
+        // console.log(a)
+
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        //find 查询数组中第一个符合条件的项然后返回这个值,没有就返回Undefined
+
+        //源码
+        // let ary = [1, 2, 3, 4, 5, 6, 7]
+        // function find2(ary, fn) {
+        //     for (let i = 0; i < ary.length; i++) {
+        //         if(fn(ary[i],i,ary)){
+        //             return ary[i]
+        //         }
+        //     }
+        // }
+        // let a=find2(ary, item => item > 8)
+        // console.log(a)
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //findIndex 查询数组中第一个符合条件的项然后返回这个值的索引,没有就返回-1
+        let ary = [1, 2, 3, 4, 5, 6, 7]
+        function findIndex2(ary, fn) {
+            for (let i = 0; i < ary.length; i++) {
+                if (fn(ary[i], i, ary)) {
+                    return i
+                }
+            }
+            return -1
+        }
+        let a = findIndex2(ary, item => item > 2)
+        console.log(a)
+
+    </script>
+</body>
+
+</html>
