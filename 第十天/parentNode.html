@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul">
+        <li><a href="javascript:">1</a></li>
+        <li><a href="javascript:" id="a">1</a></li>
+        <li><a href="javascript:">1</a></li>
+        <li><a href="javascript:">1</a></li>
+        <li><a href="javascript:">1</a></li>
+    </ul>
+    <ul id="ull">
+        <li><a href="javascript:">1</a></li>
+        <li><a href="javascript:" id="b">12</a></li>
+        <li><a href="javascript:">13</a></li>
+        <li><a href="javascript:">14</a></li>
+        <li><a href="javascript:">15</a></li>
+    </ul>
+    <script>
+        //parentNode 查找父元素
+        let aa = ul.querySelectorAll('a') //获取ul下所有的a标签
+        aa.forEach(item => {  //循环ul下的所有a标签
+            item.onclick = function () {
+                this.parentNode.style.background = 'yellow' //点击a标签然后给它的父元素添加样式
+            }
+        })
+
+        let b = ull.querySelectorAll('a') //获取u'll下所有的a标签
+        b.forEach(item => {   //循环
+            item.onclick = function () {
+               ull.removeChild(this.parentNode)  //点击a标签是删除它的父元素 
+            }
+        })
+
+        a.parentNode.previousElementSibling.firstElementChild.setAttribute('id','aab') //给它的父元素的上一个兄弟下的第一个子元素添加一个行内属性id为aab
+
+
+
+    </script>
+</body>
+
+</html>

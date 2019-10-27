@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            创建元素:
+                document.createElement('标签名')
+            让元素的末尾添加一个子元素:
+                appendChild(创建或克隆出来的元素)
+            在元素的前一项添加一个元素:
+                insertBefore(创建或克隆出来的元素)
+            删除某个元素下的子元素:
+                removeChild(要删除的元素)
+            克隆:
+                cloneNode(true为全部克隆)
+        */
+        let bod = document.querySelector('body') //获取body
+        let scr = document.querySelector('script') //获取到script
+        let b = bod.insertBefore(document.createElement('div'), scr) //创建一个div并将它加在script前
+        b.setAttribute('class', 'qq') //给新加的div添加class
+        b.setAttribute('style', 'background:red;height:60px')//给新添加的div添加css的的样式
+        let c = bod.insertBefore(b.cloneNode(true),scr) //克隆新添加div,并将克隆的div添加到script之前
+        bod.removeChild(b) //删除之前创建的div
+
+
+    </script>
+</body>
+
+</html>

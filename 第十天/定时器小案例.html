@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            height: 500px;
+            width: 380px;
+            margin: 0 auto;
+        }
+
+        img {
+            height: 500px;
+            width: 380px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let i = 1         //添加初始值方便计数
+        let non = true   //添加开关方便之后的操作
+        let a           // 创建一个新变量,将来用来接收定时器的返回值
+        function fn() {      //添加函数方便之后的再次调用
+            a = setInterval(() => {    //添加定时器进行多次执行
+                box.innerHTML = `<img src = "img/${i}.png">`   //使用模板字符串进行img的新建     
+                if (i === 35) {   //当i 达到35时使变量初始化
+                    i = 1
+                } else {    //自加一达到图片切换的效果
+                    i++
+                }
+            }, 100)
+        }
+        fn()
+        let bb = document.querySelector('body') //获取到body
+        bb.onclick = function () {    //在body上添加点击事件
+            if (non) {      //单击body当定时器触发时,关闭定时器
+                clearTimeout(a) 
+            }else{          //当定时器关闭时,调用函数使定时器再次触发
+                fn()
+            }
+            non = !non      //每点击一次就依次修改下一次的判断条件
+        }
+
+
+
+    </script>
+</body>
+
+</html>

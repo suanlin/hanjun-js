@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" style="background: chocolate;" class="arr">
+        <!-- sss -->
+        sssssssssss
+        <!-- sssssd -->
+    </div>
+    <script>
+        // element.createElement()
+        // appendChild
+        // insertBefore
+        // firstElementChild
+        // lastElementChild
+        // nextElementSibling
+        // previousElementSibling
+        // parentNode
+        // getAttribute
+        // setAttribute
+        // removeAttribute
+        // cloneNode
+
+
+        /*
+        DOM 通过document 提供的api进行操作界面
+            如果要操作某个元素要先获取到,获取的元素是个对象,在js中标签和对象是相应射的关系
+
+
+            页面中的所有内容都由不同节点组成
+
+            元素节点 - 标签   1
+            注释节点 - 注释   8
+            属性节点 - 标签上的属性  2
+            文本节点 - 文本,回车换行  3
+            文档节点 - document  9
+
+            查看节点的类型:
+                nodeType
+            操作节点的内容:
+                nodeValue
+            读取节点的名字:
+                nodeName
+            属性节点:
+                attributes
+            查看当前元素下的所有子节点:
+                childNodes
+            查看当前元素下的所有子元素节点:
+                chiidren
+            
+        
+        */
+
+        // console.dir(box)
+        // console.log(box.nodeType) //查询box的节点类型
+        // console.log(box.nodeName) //查看box的名字
+        // console.log(box.childNodes[1].nodeValue ='1111112134223424') //修改修改box下第二个子节点的内容
+        // console.log(box.childNodes[1].nodeType)  //检测box下第二个子节点的节点类型
+        // console.log(box.attributes[0]) //获取box标签下的第一个标签属性
+        // console.log(box.attributes[0].nodeType)  //检测属性节点的类型
+        // console.log(box.attributes[0].nodeName) //获取属性节点的名字
+
+
+        let obj = {
+            arr:[1,2,3,3,4,5],
+            ary:[5,4,3,2,1,1]
+        }
+        let a = box.attributes //获取box所有的属性赋值给a
+        for (let i = 0; i < a.length; i++) { //循环a
+            if(a[i].nodeName === 'class'){ //当属性名为class时条件成立
+                console.log(obj[a[i].nodeValue]) //当条件成立时输出对象中与属性值相同的那一项
+            }
+        }
+        console.log(box.attributes) //查看box下的所有属性
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

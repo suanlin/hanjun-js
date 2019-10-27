@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 100px;
+            border: 1px solid #000;
+        }
+
+        ul li {
+            height: 30px;
+            line-height: 30px;
+            color: #000;
+            text-align: center;
+        }
+
+        .a {
+            background: aquamarine;
+            color: #000;
+        }
+
+        .b {
+            background: chocolate;
+            color: #fff;
+        }
+
+        .c {
+            background: skyblue;
+            color: #fff;
+        }
+
+        .d {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <script>
+        function fn() { //添加函数方便之后的多次调用
+            ul.lastElementChild.className = ul.firstElementChild.className = 'd'  //使第一个和最后一个li的class为d
+        }
+        fn()
+        let li = ul.children //获取ul下所有的li
+        for (let i = 0; i < li.length; i++) {   //循环所有的li
+            if (i !== 0 && i !== li.length - 1) { //判断i不为第一个和最后一个
+                li[i].onmouseover = function () {  //添加移入时间
+                    this.className = 'b'   //移入时使当前的class为b
+                    this.previousElementSibling.className = this.nextElementSibling.className = 'a' //使当前li的上一个和下一个的class为a                    
+                    fn()  //调用函数使第一个和最后一个li的class始终为d,避免被修改
+                }
+                li[i].onmouseout = function () { //添加划出事件
+                    this.className = this.previousElementSibling.className = this.nextElementSibling.className = '' //使所有的li的class为空
+                    fn() //调用函数使第一个和最后一个li的class始终为d,避免被修改
+                }
+            } else {
+                li[i].onmouseover = function () {  //设置第一个和最后一个的滑入事件
+                    this.className = 'c'   //滑入时class名改为c
+                }
+                li[i].onmouseout = function () {  //设置第一个和最后一个的划出事件
+                    fn()    //调用函数使样式初始化
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

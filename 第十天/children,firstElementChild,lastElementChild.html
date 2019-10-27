@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div">
+        <ul id="ul">
+            <li>
+                <p style="margin: 0; height: 21px;"></p>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+        <ul id="ul1">
+                <li>
+                    <p style="margin: 0; height: 21px;"></p>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+    
+            </ul>
+    </div>
+    <script>
+    /*
+        children:找到某个元素下的元素子节点
+        childNode:找到某个元素下的所有子节点
+        firstElementChild:找到父级下的第一个子元素
+        lastElementChild:找到父级下的最后一个子元素
+    
+    */
+    let li =ul.children  //获取ul下的所有子元素节点
+    for (let i = 0; i < li.length; i++) {
+        li[i].style.background = 'red' //给所有的li添加样式
+    }
+    ul.firstElementChild.style.background = 'blue' //获取ul下的第一个子元素节点并添加样式
+    ul.lastElementChild.style.background = 'yellow'//获得ul下的最后一个子元素节点并添加样式
+    
+    let lii = ul1.childNodes //获得ul1下的所有子节点
+    for (let i = 0; i < lii.length; i++) {
+        if(lii[i].nodeType === 1){  //筛选出所有的子元素
+            lii[i].style.background = 'red' //改变所有子元素的样式
+        }
+    }
+    ul1.firstElementChild.style.background = 'blue' //获取ul下的第一个子元素节点并添加样式
+    ul1.lastElementChild.style.background = 'yellow'//获得ul下的最后一个子元素节点并添加样式
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+}
+ul{
+    width:100px;
+    border:1px solid #000;
+}
+ul li{
+    height:30px;
+    line-height: 30px;
+    color:#000;
+    text-align: center;
+}
+.a{
+    background: aquamarine;
+    color:#000;
+}
+.b{
+    background:chocolate;
+    color:#fff;  
+}
+.c{
+    background:skyblue;
+    color:#fff;  
+}
+.d{
+    background:pink;
+}
+</style>
+</head>
+<body>
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+<script>
+    const lis = ul.children; //获取到所有的li
+    const last = ul.lastElementChild;//获取到ul下的最后一个li
+    const first = lis[0];  //获取到第一个li
+
+    last.className = first.className = 'd'; //初始时将第一个和最后一个的class名改为d使它们初始时就为粉色的
+
+
+    for(let i=0;i<lis.length;i++){  //循环所有的li,方便个所有的li添加属性
+        if(i !== 0 || i !== lis.length-1){ 
+            lis[i].onmouseover = function(){  //过滤掉第一个和最后一个
+                this.className = 'b';    //点击时使当前的li添加class为b
+                this.previousElementSibling.className = 'a';   //使当前li的上一个的class为a
+                this.nextElementSibling.className = 'a';        //使当前li的下一个的class为a
+                // i == 1?this.previousElementSibling.className = 'd':null;
+                // i == lis.length -2?this.nextElementSibling.className = 'd':null
+                ul.lastElementChild.className = ul.firstElementChild.className = 'd'  //使第一个和最后一个的class始终为d
+            }
+            lis[i].onmouseout = function(){
+                this.nextElementSibling.className = this.previousElementSibling.className = this.className = '';//移除时初始化所有的class名
+                // i == 1?this.previousElementSibling.className = 'd':null;
+                // i == lis.length -2?this.nextElementSibling.className = 'd':null
+                ul.lastElementChild.className = ul.firstElementChild.className = 'd'//使第一个和最后一个的class始终为d
+            }
+            
+        }
+    }
+
+    last.onmouseover = first.onmouseover = function(){  //滑入第一个和最后一个时使class为c
+        this.className = 'c';
+    }
+    last.onmouseout = first.onmouseout = function(){  //划出第一个和最后一个是使class回复初始状态
+        this.className = 'd';
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
