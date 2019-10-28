@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+ul{
+    width:200px;
+    height:300px;
+    border:1px solid #000;
+}
+</style>
+</head>
+<body>
+    <ul id="ul">
+        <li>你你你好好好</li>
+    </ul>
+    <input type="text" id="txt" /><button id="btn">发送</button>
+
+<script>
+
+    let btn = document.getElementById('btn');    //获取到每一个要操作的元素
+    let ul = document.getElementById('ul');
+    let txt = document.getElementById('txt');
+
+    btn.onclick = function(){
+        let val = txt.value;      //获取input框中的内容
+        ul.innerHTML +=  '<li>'+val+'</li>'; // 使用+=使每一次的内容都进行相加使其达到每一次的内容都存在的效果
+        txt.value = '';   //点击发送时清空input框中的内容
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

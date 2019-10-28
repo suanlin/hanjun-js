@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            position: relative;
+        }
+
+        #box2 {
+            width: 300px;
+            position: absolute;
+            top: 40%;
+        }
+
+        #prev {
+            float: left;
+        }
+
+        #next {
+            float: right;
+        }
+
+        #img {
+            width: 300px;
+            height: 200px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="box2">
+            <button id="prev">上一张</button>
+            <button id="next">下一张</button>
+        </div>
+        <img src="img/1.png" id="img" />
+    </div>
+    <script>
+        let num = 1;   //设置初始值方便进行操作
+        next.onclick = function () {
+            num++;  //每一次点击都使变量自加1,使其达到下一次的条件
+            img.src = `img/${num}.png`;   //使用模板字符串并赋值给img的src
+            console.log(1)
+            if (num === 8) {  //当达到最大的条件时,就将变量初始化达到循环的条件
+                num = 0
+            }
+        }
+        prev.onclick = function () {
+            num--;    //原理同上当点击时,使变量自减一改变条件
+            if (num < 1) {  //当达到条件的最小只是将变量设为允许的最大值,达到循环的条件
+                num = 8;
+            }
+            img.src = `img/${num}.png`;  //使用模板字符串达到切换图片的效果
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            background: red;
+            height: 0;
+            transition: 1s;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">划出</button>
+    <div id="box"></div>
+    <script>
+        let a = true
+        btn.onclick = function () {
+            if (a) {
+                box.style.height = '100px';
+                box.style.left = '300px';
+                box.style.background = 'green';
+                this.innerText = '滑入'
+            } else {
+                box.style.height = '';
+                box.style.left = '';
+                box.style.background = '';
+                this.innerText = '划出'
+            }
+            a = !a
+        }
+
+    </script>
+</body>
+
+</html>

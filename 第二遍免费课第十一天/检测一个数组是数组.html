@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+    1.通过instanceof检测左值是不是有右边的值构造出来的,使就为true,否则就为false
+    2.通过Array.isArray去检测数据是不是数组,是就为true,不是就为false
+    3.Object.prototype.toString.call(ary) === '[object Array]'
+    */
+    let ary = [1,2,3,4,5,6]
+    console.log(ary instanceof Array)
+    console.log(Array.isArray(ary))
+    console.log(Object.prototype.toString.call(ary) === '[object Array]')
+    
+    </script>
+</body>
+</html>
