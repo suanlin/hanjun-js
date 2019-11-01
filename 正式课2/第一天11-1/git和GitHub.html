@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            git:版本控制工具,用来存储和回滚版本
+            gitHub:网站,远程仓库用来存储代码和版本
+
+            git的使用步骤:
+                1.设置用户信息(只用设置一次即可)
+                    设置用户名 git config --global user.name "你的名字,英文的"
+                    设置邮箱  git config --global user.email "你的邮箱"
+                2.创建版本文件(每次新建git时使用,其他时候不需要)
+                    git init
+                3.创建版本
+                    工作区到暂存区  git add 文件名    git add . 上                传全部
+                    暂存区到版本区  git commit -m "写一个回滚时方便                查询的文字"
+                    快速把工作区到代码放到版本区(已经被管理过的文件) git commit -a -m "注释"
+                4.查询状态 git status
+                5.查看版本 git log    git relog
+                6.查看每个区域的区别
+                    工作区跟暂存区的区别  git diff
+                    工作区跟版本区的区别  git diff master
+                    暂存区跟版本区的区别  git diff --cached
+                7.回到历史版本 (回滚)  git reset --hard 历史ID
+                8.clear清屏
+
+
+            添加过滤文件
+                touch .gitignore  (创建过滤文件)
+                在文件中填写过滤的文件或文件夹
+                    *.zip、*.rar、*.via、*.tmp过滤这些后缀名的文件
+                    排除指定文件夹下的文件， /txt/1.txt
+                    排除指定文件夹  \txt2
+                    如果已经提交过的代码，使用.gitignore是无效的，那么请使用这段代码:git rm -r --cached . 
+
+            gitHub的应用
+                1.创建一个版本仓库
+                2.绑定秘钥 ssh-keygen -t rsa -C "邮箱名"(绑一次即可)
+                3,确定版本库是最新的
+                4.查看远程仓库 git remote -v
+                5.创建远程仓库 git remote add 自己起一个名字 远程地               址(gitHub仓库的地址)
+                6.同步远程 git pull 自己起的名字 master
+                7.推送到远程 git push 自己起的名字 master
+                8.删除远程仓库 git remote remove 远程名字
+                9.克隆项目 git clone 远程仓库地址 
+        */
+    
+    
+    
+    
+    </script>
+</body>
+</html>
