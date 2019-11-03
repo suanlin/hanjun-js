@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            闭包的条件:
+                1.函数套函数
+                2.子函数应用父函数的变量或形参
+                3.子函数被外界所引用
+            闭包的作用:
+                使父元素的变量不会被浏览器的垃圾回收机制所回收,达到存值的效果
+            ******* 重要
+                父函数闭包时只会是父函数的变量被存储,子函数中的变量不会进行存储
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        */
+        // for (let i = 0; i < 10; i++) {
+        //     function fn(i) {
+        //         return setTimeout(() => {
+        //             var b = 0
+        //             console.log(i)
+        //         })
+        //     }
+        //     a = fn(i)
+        // }
+        // console.dir(a)
+
+        function fn() {  //函数达到了闭包条件
+            var a = 10;    //所以a值会被存储不会再被删除
+            var b = 20
+            function f() {
+                ++a;
+                var c = 1   //闭包时只会存储父函数中的变量,不会存储子函数中的变量
+                b++
+                console.log(a)   //闭包时这个变量会被存储
+            }
+            ++a
+            console.log(a)  //由于子函数和父函数不同时执行
+            return f;
+        }
+
+        var ff = fn(1);
+        console.dir(fn)
+        ff()
+        console.dir(ff)  //只有引发闭包的变量会被存储,其他的变量不会存储
+
+
+
+
+    </script>
+</body>
+
+</html>

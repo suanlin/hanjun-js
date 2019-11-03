@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href=""></a>
+    <script>
+        /*
+        js执行时会进行var变量和函数的预解析然后在进行代码的执行,所以所有的var和function都进行变量提升;
+        提升规则:
+            1,全局作用域和局部作用域的预解析没有关系
+            2.var的变量变量提升后为undefined,函数的形参变量会覆盖undefined,函数会覆盖所有的形参变量和undefined,后面的函数会覆盖前面的函数
+            ****重要
+                变量没有使用创建变量的单词创建直接进行赋值时,会默认直接写在window下,不论是在全局作用域还是局部作用域;(直接使用还是会报错)
+        变量提升后,执行时只会进行赋值操作,所以普通函数直接不用看了
+    
+        
+        */
+
+        // function b() {
+        //     a = 20
+        // }
+        // b()
+        // console.log(a)
+        //当没有定义变量,直接向变量赋值时会默认是加在window上的
+    </script>
+    <script>
+        // console.log(a) //由于上一个script中的a是加在window下的所以会直接获取到,
+        // var a = 10   //给变量进行重新的赋值
+        // function b(a) {  //
+        //     a = 20   //当函数中有这个变量时不会去外面寻找这个变量所以不会更改2全局的变量
+        // }
+        // b(a)
+        // console.log(a)  //不会受到局部作用域的影响所以还为10
+        // console.log(b)  //变量提升后还是这个函数
+
+        // a = 20
+        // function b(){
+        //     console.log(a) //变量提升后为undefined
+        //     a = 30
+        //     var a = 10
+        //     console.log(a) //赋值后为10
+        // }
+        // b() 
+        // console.log(a) //不会受到局部作用域的影响所以为20
+
+
+
+        // console.log(a); //变量提升后为空函数
+        // var a = 10;
+        // function a() {
+        //     var b = 30;
+        //     console.log(5);
+        // }
+        // console.log(a);   //变量提升后只进行赋值操作,所以a为10
+        // a = 30;
+        // console.log(a);  //原因同上,a为30
+        // var a = function () {
+        //     console.log(333);
+        // }
+        // function a() { }
+        // a(); // 目前a为333的函数 所以调用就会执行333的函数,输出333
+        // console.log(a); // 333的函数
+
+
+
+
+        // function a() { //首先进行变量提升 变量提升后为333的函数
+        //     alert(1);
+        // }
+        // a(); //调用333的函数,所以打印输出333
+        // var a = function () { alert(a); }
+        // alert(a); //进行的重新赋值所以目前a为alert(a)的函数
+        // var a = 30; 
+        // alert(a); //上一步有进行的重新赋值,所以为 30
+        // var b = function (a) {
+        //     var a = 50;
+        //     alert(a);    //当函数中存在这个变量时不会去外面寻找,当函数中不存在时会到外面去寻找,所以当前为50
+        // }
+        // b(a);
+        // alert(a);    //当前的a不会受到函数内的影响,所以还为刚才的30
+        // function a() {
+        //     alert(333);
+        // }
+        // alert(a);  //还是30
+
+
+    </script>
+</body>
+
+</html>

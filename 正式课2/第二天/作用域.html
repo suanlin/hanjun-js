@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            作用域分为全局作用域和局部作用域
+                全局作用域
+                    如果有多个script标签,上一个script标签报错是不会影响下面script中的代码执行
+                    变量的查找方法,先查看当前的script有没有,没有就会上一个script标签中查找,如果找不到就报错
+                局部作用域
+                    当函数执行的时候,会开辟一个私有的执行栈,把函数中存在的字符串运行在这个执行栈中;没执行一次函数就开辟一个私有的执行栈
+                    函数的执行顺序
+                        1.形参赋值
+                        2.变量提升
+                        3.执行上下文
+                        4.执行栈销毁
+                如果函数中找不到某个变量时会去外面寻找,直到找到全局,如果全局也没有会报错;
+                当一个变量没有使用var,let,function等创建变量的单词进行创建直接进行赋值时,会默认写在window下的
+                ***如果函数中对外界的变量进行了修改那么外界的变量也会被修改
+        */
+        //当有多个相同的变量名时
+        //  1.函数内部有变量(var,let,function,形参)不会拿外面的
+        //  2.有函数优先函数,没有函数再看形参,形参也没有就看var,let;        let创建的变量不能再被创建,否则会报错
+
+        // var a = [2, 3, 4, 5]
+        // function fn(a) { //当实参为一个应用类型时,那么形参赋值为赋址过程,当在函数中改变这个变量的内容时外界的变量的内容也会更改;
+        //     console.log(a) // 但当进行重新赋址操作时不会改变外界变量的地址
+        //     a[0] = 1
+        //     a = [1, 2, 3]
+        //     console.log(a)
+        // }
+        // fn(a)
+        // console.log(a)
+
+
+
+
+        // var a = function(){console.log(4567890)};
+        // function fn(a) {
+        //     alert(a);  //先进行变量提升所以为最后的那个函数
+        //     var b = 30; 
+        //     a = 40;
+        //     var a;
+        //     alert(a); // 40
+        //     function a() {
+        //         alert(5);
+        //     }
+        // }
+        // fn(a);
+        // alert(a); //没有被函数内部所影响所以还是第一个函数
+
+
+
+        // var b = 10;
+        // function fn() {
+        //     alert(a);  //变量提升后为undefined
+        //     var a = 20; 
+        //     alert(b);  //变量提升后为undefined
+        //     window.b = 30;
+        //     alert(a); // 20
+        //     b = 50;
+        //     var b;
+        // }
+        // fn();
+        // alert(b); //30 window下的b被修改了
+
+
+
+         var b = 10;
+            function fn() {
+                alert(a); //变量提升后 undefined
+                alert(b);  //undefined
+                var a = 20;
+                b = 50;
+                alert(a);  //20
+                var b;
+            }
+            fn();
+            alert(b); //10
+
+    </script>
+
+</body>
+
+</html>

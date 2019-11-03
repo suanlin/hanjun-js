@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body,
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="price.css" />
+</head>
+
+<body onselectstart="return false;">
+	<div class="wrap">
+		<div class="box">
+			<ul class="list">
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>12.5元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>10.5元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>8.5元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>8元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong>14.5元 </strong> 小计：<strong>0元</strong>
+					</span>
+				</li>
+			</ul>
+			<div class="info">
+				<span>商品公合计：<em>0</em>件</span>
+				<span>共花费了：<em>0</em>元</span>
+				<br />
+				<br />
+				<span>其中最贵的商品单价是：<em>0</em>元</span>
+			</div>
+		</div>
+	</div>
+	<script>
+		function Fn(box) {
+			this.box1 = document.querySelector(box)
+			this.lii = this.box1.querySelectorAll('li')
+			this.div1 = this.box1.lastElementChild
+			this.sum = this.div1.firstElementChild.firstElementChild
+			this.tota = this.div1.firstElementChild.nextElementSibling.firstElementChild
+			this.expen = this.div1.lastElementChild.firstElementChild
+			this.sum2 = 0
+			this.c = []
+			this.host()
+		}
+		Fn.prototype.host = function () {
+			this.lii.forEach((item, i) => {
+				let plus = item.firstElementChild.nextElementSibling.nextElementSibling
+				let sub = item.firstElementChild
+				let outp = item.firstElementChild.nextElementSibling
+				let str1 = item.lastElementChild.firstElementChild
+				let str2 = item.lastElementChild.lastElementChild
+				let that = this
+				let coun = 0
+				plus.onclick = function () {
+					coun++
+					outp.innerText = coun   																 //分件数
+					str2.innerText = coun * parseFloat(str1.innerText) + '元'      							//分价格
+					that.sum2++
+					that.sum.innerText = that.sum2															//总件数
+					that.tota.innerText = parseFloat(str1.innerText) + parseFloat(that.tota.innerText)		//总数
+					that.c.push(parseFloat(str1.innerText))												  //最贵
+					that.c = [...new Set(that.c) ]
+					that.expen.innerText = Math.max(...that.c)
+				}
+				sub.onclick = function () {
+					if (outp.innerText > 0) {
+						coun--
+						outp.innerText = coun                                                              //分件数
+						str2.innerText = coun * parseFloat(str1.innerText) + '元'							//分价格
+						that.sum2--
+						that.sum.innerText = that.sum2														//总件数
+						that.tota.innerText = parseFloat(that.tota.innerText) - parseFloat(str1.innerText)     //总数
+						if(coun == 0){                                                                    //最贵
+							that.c.splice(that.c.indexOf(parseFloat(str1.innerText)),1)
+							that.expen.innerText = Math.max(...that.c)
+						}
+						that.sum2 == 0?	that.expen.innerText=0 : null 
+					}
+				}
+			})
+		}
+
+
+		let f = new Fn('.box')
+		console.log(f)
+
+
+	</script>
+</body>
+
+</html>

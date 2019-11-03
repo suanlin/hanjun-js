@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .btn{
+        background: red;
+    }
+    div{
+        width: 200px;
+        height: 200px;
+        display: none;
+        border: solid 1px black;
+    }
+    .div{
+     display: block;   
+    }
+    </style>
+</head>
+<body>
+    <button class="btn">按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <div class="div">去去去去去去群群</div>
+    <div>呜呜呜呜呜呜呜</div>
+    <div>呃呃呃呃呃呃呃</div>
+    <script>
+    let btn1 = document.querySelectorAll('button')
+    let div1 = document.querySelectorAll('div')
+    let a = 0
+    for (var i = 0; i < btn1.length; i++) {
+        function fn(i){   //利用闭包存值的效果,进行存值不会因为异步所影响
+            btn1[i].onclick = function(){
+                btn1[a].className = ''
+                div1[a].className = ''
+                this.className = 'btn'
+                div1[i].className = 'div'
+                a = i
+            }
+        }
+        fn(i)
+    }
+
+    
+    
+    </script>
+</body>
+</html>

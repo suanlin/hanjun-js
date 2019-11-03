@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>0</button>
+    <script>
+    let btn = document.querySelector('button')
+    btn.onclick = (function(){   //匿名函数自执行,所以点击事件是加在子函数中的达到了被外界所调用的条件,函数套函数的条件也达到了,子函数中也调用父函数的变量,所以父函数闭包,变量不被销毁,所以每一次点击都会加1
+        var a = 0
+        return function (){
+            btn.innerText = ++a
+        }
+    })()
+    console.dir(btn.onclick)
+    
+    
+    </script>
+</body>
+</html>

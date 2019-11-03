@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body,
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="baidu.css" />
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="baidu">
+			<ul id="list">
+				<li>
+					<div></div>
+					<span>泡沫</span>
+					<span>邓紫棋</span>
+				</li>
+				<li>
+					<div></div>
+					<span>说爱你</span>
+					<span>蔡依林</span>
+				</li>
+				<li>
+					<div></div>
+					<span>稻香</span>
+					<span>周杰伦</span>
+				</li>
+				<li>
+					<div></div>
+					<span>我的梦</span>
+					<span>张靓颖</span>
+				</li>
+				<li>
+					<div></div>
+					<span>怎么说我不爱你</span>
+					<span>萧敬腾</span>
+				</li>
+				<li>
+					<div>️</div>
+					<span>无处安放</span>
+					<span>白若溪</span>
+				</li>
+			</ul>
+			<div class="select">
+				<span><span class="selectAll"></span><span>全选</span></span>
+				<div class="others">
+					<span><em></em>收藏</span>
+					<span><em></em>添加</span>
+					<span><em></em>删除</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function Bq(ull) {
+			this.ull = document.getElementById(ull)
+			this.lii = this.ull.querySelectorAll('li')
+			this.qx = this.ull.nextElementSibling.firstElementChild.firstElementChild
+			this.aa = []
+			this.sj()
+		}
+		Bq.prototype.bs = function (item, i) {
+			if (i % 2) {
+				item.style.background = 'blue'
+			} else {
+				item.style.background = 'yellow'
+			}
+		}
+		Bq.prototype.sj = function () {
+			let that = this
+			this.lii.forEach((item, i) => {
+				let itf = item.firstElementChild
+				itf.innerText = ''
+				this.bs(item, i)
+				if (itf.innerText === '') {
+					item.onmouseover = function () {
+						item.style.background = 'red'
+					}
+					item.onmouseout = function () {
+						if (itf.innerText === '') {
+							that.bs(item, i)
+						}
+					}
+				}
+				itf.onclick = function () {
+					if (itf.innerText === '✔') {
+						that.bs(item, i)
+						itf.innerText = ''
+						that.qx.innerText = ''
+						that.aa.splice(that.aa.indexOf(i), 1)
+					} else {
+						item.style.background = 'red'
+						itf.innerText = '✔'
+						that.aa.push(i)
+						if (that.lii.length == that.aa.length) {
+							that.qx.innerText = '✔'
+						}
+					}
+				}
+			})
+			this.qx.onclick = function () {
+				if (this.innerText === '') {
+					this.innerText = '✔'
+					that.lii.forEach((item, i) => {
+						item.style.background = 'red'
+						item.firstElementChild.innerText = '✔'
+						that.aa.push(i)
+					})
+				} else {
+					this.innerText = ''
+					that.lii.forEach((item, i) => {
+						item.firstElementChild.innerText = ''
+						that.aa.splice(0)
+						that.bs(item, i)   
+					})
+				}
+			}
+		}
+		let f = new Bq('list')
+		console.log(f)
+	</script>
+</body>
+
+</html>

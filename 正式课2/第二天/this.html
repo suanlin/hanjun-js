@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        this:
+            1.在事件函数中,谁触发的事件,this就是谁
+            2.函数直接调用,默认this为window
+            3.方法(函数前面有主的都叫方法),this就是.前面的主(箭头函例外)
+            4.箭头函数,她得this为函数定义时的上下文作用域
+    
+        */
+        //1
+        document.onclick = function () {
+            console.log(this) //document
+        }
+        //2
+        function fn() {
+            console.log(this)  //window
+        }
+        fn()
+        //3
+        let obj = {
+            fn1: function () {
+                console.log(this)  //obj
+            }
+                }
+        obj.fn1()
+        //4
+        document.onclick = function () {
+            let fn2 = () => {
+                console.log(this)  //document
+            }
+            fn2()
+        }
+    </script>
+</body>
+
+</html>
